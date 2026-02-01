@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Yes or No</title>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+    }
+
+    .container {
+      position: relative;
+      width: 400px;
+      height: 200px;
+      text-align: center;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 18px;
+      cursor: pointer;
+      position: absolute;
+    }
+
+    #yes {
+      left: 80px;
+      top: 100px;
+    }
+
+    #no {
+      left: 220px;
+      top: 100px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Do you like this page? 😄</h2>
+    <button id="yes" onclick="alert('Yay! 🎉')">Yes</button>
+    <button id="no">No</button>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("no");
+    const container = document.querySelector(".container");
+
+    noBtn.addEventListener("mouseenter", () => {
+      const maxX = container.clientWidth - noBtn.offsetWidth;
+      const maxY = container.clientHeight - noBtn.offsetHeight;
+
+      const randomX = Math.floor(Math.random() * maxX);
+      const randomY = Math.floor(Math.random() * maxY);
+
+      noBtn.style.left = randomX + "px";
+      noBtn.style.top = randomY + "px";
+    });
+  </script>
+
+</body>
+</html>
